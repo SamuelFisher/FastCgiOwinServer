@@ -1,82 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{768202EE-B788-4265-B808-09DEACC99839}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Fos</RootNamespace>
-    <AssemblyName>Fos</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Externalconsole>True</Externalconsole>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Externalconsole>True</Externalconsole>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="FastCgiNet, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FastCgiNet.0.1.0\lib\net40\FastCgiNet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Mono.Posix, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mono.Posix.4.0.0.0\lib\net40\Mono.Posix.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
-      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <PackageReference Include="FastCgiNet" Version="0.1.0" />
+    <PackageReference Include="Owin" Version="1.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Middleware\OwinMiddleware.cs" />
-    <Compile Include="Middleware\PageNotFoundMiddleware.cs" />
-    <Compile Include="Owin\ExtensionMethods.cs" />
-    <Compile Include="Owin\OwinContext.cs" />
-    <Compile Include="FosSelfHost.cs" />
-    <Compile Include="CustomPages\EmptyResponsePage.cs" />
-    <Compile Include="CustomPages\ApplicationErrorPage.cs" />
-    <Compile Include="CustomPages\ICustomPage.cs" />
-    <Compile Include="Listener\SocketListener.cs" />
-    <Compile Include="Listener\FosRequest.cs" />
-    <Compile Include="Logging\IServerLogger.cs" />
-    <Compile Include="Logging\RequestInfo.cs" />
-    <Compile Include="Middleware\ShuntMiddleware.cs" />
-    <Compile Include="Owin\HeaderDictionary.cs" />
-    <Compile Include="Logging\CompositeServerLogger.cs" />
-    <Compile Include="Logging\StatsLogging\ApplicationError.cs" />
-    <Compile Include="Logging\StatsLogging\StatsLogger.cs" />
-    <Compile Include="Logging\StatsLogging\StatsPageMiddleware.cs" />
-    <Compile Include="Owin\FosAppBuilder.cs" />
-    <Compile Include="Middleware\FosOwinRoot.cs" />
-    <Compile Include="SocketHelper.cs" />
-    <Compile Include="Streams\FosStdoutStream.cs" />
-    <Compile Include="Listener\RecordFactoryAndRequest.cs" />
-    <Compile Include="Streams\HeaderWriter.cs" />
-    <Compile Include="Streams\NonEndingStdoutSocketStream.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
 </Project>
