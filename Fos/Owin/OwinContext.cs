@@ -160,7 +160,7 @@ namespace Fos.Owin
                 Set("owin.RequestQueryString", nameValuePair.Value);
             else if (nvpName == "HTTPS" && nameValuePair.Value == "on")
                 Set("owin.RequestScheme", "https");
-            else if (nvpName == "DOCUMENT_URI")
+            else if (nvpName == "PATH_INFO")
             {
                 Set("owin.RequestPathBase", string.Empty);
                 Set("owin.RequestPath", nameValuePair.Value);
